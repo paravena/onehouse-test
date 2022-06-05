@@ -20,11 +20,11 @@
     top: -10px;
   }
 
-  & input + .check-icon {
+  & input ~ .check-icon {
       display: none;
   }
 
-  input:checked + .check-icon {
+  input:checked ~ .check-icon {
       display: inline-block;
   }
 }
