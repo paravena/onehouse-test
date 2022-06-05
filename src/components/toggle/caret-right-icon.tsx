@@ -1,4 +1,4 @@
-const AngleRight = () => (
+const CaretRightIcon = () => (
     <svg xmlns="http://www.w3.org/2000/svg"
          viewBox="0 0 256 512">
         <path
@@ -6,4 +6,4 @@ const AngleRight = () => (
     </svg>
 );
 
-export default AngleRight;
+export default CaretRightIcon;

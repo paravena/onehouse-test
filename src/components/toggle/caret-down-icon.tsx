@@ -1,4 +1,4 @@
-const AngleDown = () => (
+const CaretDownIcon = () => (
     <svg xmlns="http://www.w3.org/2000/svg"
          viewBox="0 0 320 512">
         <path
@@ -6,4 +6,4 @@ const AngleDown = () => (
     </svg>
 );
 
-export default AngleDown;
+export default CaretDownIcon;

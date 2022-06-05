@@ -1,6 +1,6 @@
 import './toggle.scss';
-import AngleDown from "./angle-down";
-import AngleRight from "./angle-right";
+import CaretDownIcon from './caret-down-icon';
+import CaretRightIcon from './caret-right-icon';
 
 type Props = {
     toggle: boolean;
@@ -10,8 +10,8 @@ const Toggle = ({ toggle, onClick }: Props) => (
     <span className="toggle" onClick={onClick}>
         {
             toggle
-                ? <AngleDown />
-                : <AngleRight />
+                ? <CaretDownIcon />
+                : <CaretRightIcon />
         }
     </span>
 );

@@ -1,0 +1,30 @@
+.checkbox {
+  overflow: hidden;
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 1px solid darkgray;
+  border-radius: 2px;
+  position: relative;
+
+  & label {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+  }
+
+  & input {
+    visibility: hidden;
+    position: absolute;
+    left: -10px;
+    top: -10px;
+  }
+
+  & input + .check-icon {
+      display: none;
+  }
+
+  input:checked + .check-icon {
+      display: inline-block;
+  }
+}

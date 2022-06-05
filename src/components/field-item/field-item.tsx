@@ -1,7 +1,7 @@
 import './field-item.scss';
-import {useCallback, useState} from 'react';
+import { useState } from 'react';
 import { FieldItemType } from '../../models';
-import { FieldItems, Toggle } from '../index';
+import { FieldItems, Toggle, Checkbox } from '../index';
 
 type Props = {
     item: FieldItemType;
@@ -18,8 +18,8 @@ const FieldItem = ({ item }: Props) => {
                         : <></>
                 }
                 <div className="field-item__name">{item.name}</div>
-                <div className="field-item__check">X</div>
-                <div className="field-item__check">X</div>
+                <div className="field-item__check"><Checkbox name={`${item.name}-mask`} onClick={() => {}} checked={false} /></div>
+                <div className="field-item__check"><Checkbox name={`${item.name}-encrypt`} onClick={() => {}} checked={false} /></div>
             </div>
             {
                 item.fields !== undefined && item.fields.length > 0 && toggle
