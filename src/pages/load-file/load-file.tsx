@@ -1,5 +1,5 @@
 import './load-file.scss';
-import {useCallback, useEffect, useReducer, useState} from 'react';
+import { useCallback, useEffect, useReducer, useState } from 'react';
 import { FieldItemType } from '../../models';
 import jsonData from './test-data/test-data'
 import { FieldItem } from '../../components';
@@ -92,11 +92,11 @@ const LoadFile = () => {
               <h2>Output</h2>
               <h3>Masked Fields</h3>
               <ul>
-                {state.maskedItems.map(f => <li>{f.name}</li>)}
+                {state.maskedItems.map(f => <li>{f.path?.join('.')}</li>)}
               </ul>
               <h3>Encrypted Fields</h3>
               <ul>
-                {state.encryptedItems.map(f => <li>{f.name}</li>)}
+                {state.encryptedItems.map(f => <li>{f.path?.join('.')}</li>)}
               </ul>
           </div>
         </section>

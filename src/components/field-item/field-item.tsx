@@ -4,7 +4,7 @@ import { FieldItemType } from '../../models';
 import { FieldItems, Toggle, Checkbox } from '../index';
 
 type Props = {
-    parentName?: string;
+    path?: string[];
     item: FieldItemType;
     addMaskedItem: (item: FieldItemType) => void;
     deleteMaskedItem: (item: FieldItemType) => void;
@@ -12,7 +12,7 @@ type Props = {
     deleteEncryptedItem: (item: FieldItemType) => void;
 }
 
-const FieldItem = ({ parentName = '', item, addMaskedItem, deleteMaskedItem, addEncryptedItem, deleteEncryptedItem }: Props) => {
+const FieldItem = ({ path = [], item, addMaskedItem, deleteMaskedItem, addEncryptedItem, deleteEncryptedItem }: Props) => {
     const [toggle, setToggle] = useState(false);
     const itemHasChildren = (item: FieldItemType) => item.fields !== undefined && item.fields.length > 0;
     return (
@@ -29,7 +29,7 @@ const FieldItem = ({ parentName = '', item, addMaskedItem, deleteMaskedItem, add
                         !itemHasChildren(item) && (
                             <Checkbox
                                 name={`${item.name}-mask`}
-                                onClick={value => value ? addMaskedItem(item) : deleteMaskedItem(item)}
+                                onClick={value => value ? addMaskedItem({...item, path}) : deleteMaskedItem({...item, path})}
                             />
                         )
                     }
@@ -39,7 +39,7 @@ const FieldItem = ({ parentName = '', item, addMaskedItem, deleteMaskedItem, add
                         !itemHasChildren(item) && (
                             <Checkbox
                                 name={`${item.name}-encrypt`}
-                                onClick={value => value ? addEncryptedItem(item): deleteEncryptedItem(item)}
+                                onClick={value => value ? addEncryptedItem({...item, path}): deleteEncryptedItem({...item, path})}
                             />
                         )
                     }
@@ -50,6 +50,7 @@ const FieldItem = ({ parentName = '', item, addMaskedItem, deleteMaskedItem, add
                     ? (
                         <div className="field-item__fields">
                             <FieldItems
+                              path={[...path, item.name]}
                               items={item.fields}
                               addMaskedItem={addMaskedItem}
                               deleteMaskedItem={deleteMaskedItem}

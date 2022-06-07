@@ -3,6 +3,7 @@ import { FieldItemType } from '../../models';
 import FieldItem from '../field-item/field-item';
 
 type Props = {
+    path?: string[];
     items: FieldItemType[];
     addMaskedItem: (item: FieldItemType) => void;
     deleteMaskedItem: (item: FieldItemType) => void;
@@ -10,7 +11,7 @@ type Props = {
     deleteEncryptedItem: (item: FieldItemType) => void;
 }
 
-const FieldItems = ({ items, addMaskedItem, deleteMaskedItem, addEncryptedItem, deleteEncryptedItem }: Props) => (
+const FieldItems = ({ path = [], items, addMaskedItem, deleteMaskedItem, addEncryptedItem, deleteEncryptedItem }: Props) => (
     <div className="field-items">
         <div className="field-items__header">
             <div className="field-items__column">Columns</div>
@@ -20,6 +21,7 @@ const FieldItems = ({ items, addMaskedItem, deleteMaskedItem, addEncryptedItem, 
         <div className="field_items__data">
             {items.map(item => <FieldItem
                     key={`field-item-${item.name}`}
+                    path={[...path, item.name]}
                     item={item}
                     addMaskedItem={addMaskedItem}
                     deleteMaskedItem={deleteMaskedItem}

@@ -6,5 +6,6 @@ export type FieldItemType = {
     default: string | null;
     namespace?: string;
     fields?: FieldItemType[];
+    path?: string[];
 }
 
