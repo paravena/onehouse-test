@@ -1,18 +1,21 @@
 import './checkbox.scss';
 import CheckIcon from './check-icon';
+import {useState} from "react";
 
 type Props = {
     name: string;
-    checked: boolean;
     onClick: (value: boolean) => void;
 }
 
-const Checkbox = ({ name, checked, onClick }: Props) => {
-
+const Checkbox = ({ name, onClick }: Props) => {
+    const [checked, setChecked] = useState(false);
     return (
         <div className="checkbox">
             <label htmlFor={`checkbox-${name}`}>
-                <input type="checkbox" id={`checkbox-${name}`} />
+                <input type="checkbox" id={`checkbox-${name}`} checked={checked} onChange={() => {
+                    setChecked(!checked);
+                    onClick(!checked);
+                }} />
                 <CheckIcon />
             </label>
         </div>
