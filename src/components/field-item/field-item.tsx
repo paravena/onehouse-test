@@ -50,7 +50,7 @@ const FieldItem = ({ path = [], item, addMaskedItem, deleteMaskedItem, addEncryp
                     ? (
                         <div className="field-item__fields">
                             <FieldItems
-                              path={[...path, item.name]}
+                              path={path}
                               items={item.fields}
                               addMaskedItem={addMaskedItem}
                               deleteMaskedItem={deleteMaskedItem}

@@ -92,11 +92,11 @@ const LoadFile = () => {
               <h2>Output</h2>
               <h3>Masked Fields</h3>
               <ul>
-                {state.maskedItems.map(f => <li>{f.path?.join('.')}</li>)}
+                {state.maskedItems.map(f => <li key={`masked-item-${f.name}`}>{f.path?.join('.')}</li>)}
               </ul>
               <h3>Encrypted Fields</h3>
               <ul>
-                {state.encryptedItems.map(f => <li>{f.path?.join('.')}</li>)}
+                {state.encryptedItems.map(f => <li key={`encrypted-item-${f.name}`}>{f.path?.join('.')}</li>)}
               </ul>
           </div>
         </section>
